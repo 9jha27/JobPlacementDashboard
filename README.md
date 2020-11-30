@@ -25,8 +25,83 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 CSS for an Award Details Container
 
+```
+@Styles.Render("~/Content/Site.css")
+@*<h2>Details</h2>*@
+
+<div class="award-details-container-main p-3"> 
+    <div class="rounded award-details-container p-3">
+        <h4 class="text-center">Award Details</h4>           
+        
+        <div class="row 1 pt-3">
+          <div class="col-5 mr-n5 font-weight-bold"> @*Used a bootstrap column and used a negative marging to bring content closer to the property names*@ 
+            Production Title: @*@Html.DisplayNameFor(model => model.Production.Title):*@ @*Need to change this to Production Title if necessary. Only shows up as "Title"*@
+          </div>
+          <div class="col">
+            @Html.DisplayFor(model => model.Production.Title)
+          </div>
+        </div>
+        <div class="row 2">
+          <div class="col-5 mr-n5 font-weight-bold">
+              @Html.DisplayNameFor(model => model.Year):
+          </div>
+          <div class="col">
+             @Html.DisplayFor(model => model.Year)
+          </div>
+        </div>
+      <div class="row 3">
+          <div class="col-5 mr-n5 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Name):
+          </div>
+          <div class="col">
+            @Html.DisplayFor(model => model.Name)
+          </div>
+        </div>
+        <div class="row 3">
+          <div class="col-5 mr-n5 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Type):
+          </div>
+          <div class="col">
+            @Html.DisplayFor(model => model.Type)
+          </div>
+        </div>
+        <div class="row 4">
+          <div class="col-5 mr-n5 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Category):
+          </div>
+          <div class="col">
+            @Html.DisplayFor(model => model.Category)
+          </div>
+        </div>
+        <div class="row 5">
+          <div class="col-5 mr-n5 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Recipient):
+          </div>
+          <div class="col">
+            @Html.DisplayFor(model => model.Recipient)@if (Model.Recipient != null){<i class="fa fa-info-circle fa-fw"></i>}
+          </div>
+        </div>
+
+        <p><div class="font-weight-bold">@Html.DisplayNameFor(model => model.OtherInfo):</div>
+        @Html.DisplayFor(model => model.OtherInfo)
+        </p>
+
+    </div>
+
+    <p class="p-1 ml-n2">
+    @*Button to Edit Page*@
+      <button class="iconBtn" onclick="window.location.href ='@Url.Action("Edit", "Awards", new { id = Model.AwardId })'">
+        <i class="fa fa-edit fa-fw"></i>Edit
+      </button>
 
 
+      @*Button Back to Awards Index Page*@
+      <button class="iconBtn" onclick="window.location.href ='@Url.Action("Index", "Awards")'">
+        <i class="fa fa-hand-point-left fa-fw"></i>Back to List
+      </button>
+    </p>
+</div>
+```
 
 <h3 id=#back-end">Back-End Stories</h3>
                  
