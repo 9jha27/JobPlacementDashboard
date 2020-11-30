@@ -8,6 +8,7 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 
 <h3 id="#front-end">Front-End Stories</h3>
+I spent a majority of my spring working on a particular front-end story where I had to customize the Award Details page to match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded.
 
 ```
 .award-details-container-main {
@@ -23,7 +24,7 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 ```
 
-CSS for an Award Details Container
+CSS code for the Award Details Container
 
 ```
 @Styles.Render("~/Content/Site.css")
@@ -102,9 +103,39 @@ CSS for an Award Details Container
     </p>
 </div>
 ```
+I initially had created two columns and listed everything inside those two columns, but the Title and Content columns were not as close as the client desired. So I created a row for each Title and Content pair and created two columns within the row, which allowed more much easier customization. 
+
+After completeing the first part of this story, I continued to work on the second story pertaining to the Award Details. It also dealt with customizing the layout but required me to write an onclick function in Javasript so that when the info icon was clicked, the Award Details container slid to the left and the Cast Member Details appeared next to it in a smooth transition. It also asked for a media query so that when the screen size was smaller, the Cast Member Details would appear underneath the Award Details container so as not to require users to scroll left and right. 
+
+I used this Javascript code for the onclick function: 
+
+```
+@******************JS OnClick Function***************@
+<script>
+    var castDetails = document.getElementById("castDetails");
+    var awardDetails = document.getElementById("awardDetails");
+
+    function toggleCastDetails() {       
+        if (awardDetails.className == "slideLeftAward") {
+            //shrink the box if it's open
+            castDetails.className = "slideRightCast";
+            awardDetails.className = "slideRightAward";
+        }
+
+        else {
+            //Expand the box
+            awardDetails.className = "slideLeftAward";
+            castDetails.className = "slideLeftCast";  
+        }
+    }
+</script>
+```
+
+I then created CSS for each animation, using Webkit-Transform to slide each container in and out in a smooth manner. This was a very challenging part of my sprint, but I was able to review existing Bootstrap classes and how they conflict with CSS customizations.
+
 
 <h3 id=#back-end">Back-End Stories</h3>
-                 
+I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a seed method to be able to                  
 ```                 
 protected void SeedDisplayInfo()
     {
