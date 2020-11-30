@@ -135,7 +135,9 @@ I then created CSS for each animation, using Webkit-Transform to slide each cont
 
 
 <h3 id=#back-end">Back-End Stories</h3>
-I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a seed method to be able to                  
+I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I rewrote the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
+                 
+                 
 ```                 
 protected void SeedDisplayInfo()
     {
@@ -171,7 +173,8 @@ protected void SeedDisplayInfo()
     context.SaveChanges();
 }
 ```
-A seed method so that admin can update the history or mission statements and have it change dynamically without having to update any code. 
+
+Added a ViewBag for the seeded History and Mission details 
 
 
 ```
@@ -186,4 +189,4 @@ public ActionResult About()
     return View();
 }
 ```
-Added a ViewBag for the seeded History and Mission details 
+
