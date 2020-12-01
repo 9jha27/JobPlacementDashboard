@@ -135,46 +135,70 @@ I then created CSS for each animation, using Webkit-Transform to slide each cont
 
 
 <h3 id=#back-end">Back-End Stories</h3>
-I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I rewrote the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
+I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I cleaned the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
                  
                  
 ```                 
 protected void SeedDisplayInfo()
     {
-    var info = new List<DisplayInfo>() 
-    {
-        new DisplayInfo
-        {
-            Title = "Archive Page-title",
-            TextContent = "Theatre Vertigo Archive"
-        },
+    var info = new List<DisplayInfo>() //re-formatted the seed method so it will be easier to add information later if needed
+            {
+                new DisplayInfo
+                {
+                    Title = "Archive Page-title",
+                    TextContent = "Theatre Vertigo Archive"
+                },
 
-        new DisplayInfo
-        {
-            Title = "History",
-            TextContent = "In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  " +
+                new DisplayInfo
+                {
+                    Title = "Archive Page-content",
+                    TextContent = "In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  " +
                     "Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, " +
-                    "The Electric Company, Theater!Theatre!, and their current home, The Shoebox Theater. " +
-                    "From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration with The Anonymous Theatre Company." +
-                    "Other past collaborations include defunkt theatre, Stark Raving Theater, and Tears of Joy Theatre." +
-                    "\nTheatre Vertigo has worked on world premieres including Faust Us by Joseph Fisher, 99 Ways to Fuck a " +
-                    "Swan by Kim Rosenstock, and The End of Sex by Craig Jessen. In 2016, Theatre Vertigo produced its first " +
-                    "officially commissioned work from a playwright, I Want To Destroy You, by Rob Handel."
-        },
+                    "The Electric Company, Theater!Theatre!, and their current home, The Shoebox Theater." +
+                    "From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration " +
+                    "with The Anonymous Theatre Company. Other past collaborations include defunkt theatre, " +
+                    "Stark Raving Theater, and Tears of Joy Theatre." +
+                    "<br />" +
+                    "<br />" +
+                    "Theatre Vertigo has worked on world premieres including <i>Faust</i>. <i>Us</i> by Joseph Fisher, " +
+                    "<i>99 Ways to Fuck a Swan</i> by Kim Rosenstock, and <i>The End of Sex</i> by Craig Jessen." +
+                    "In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright, <i>I Want " +
+                    "To Destroy You</i>, by Rob Handel." 
+                    //For the Archive content page - same as the content in "History" DisplayInfo, but decided to leave it in case
+                    //the theater wants to change this content on the archive page.
+                },
 
-        new DisplayInfo
-        {
-            Title = "Mission",
-            TextContent = "Theatre Vertigo’s mission is to engage audiences through compelling, " +
-            "ensemble - driven theatre with a focus on producing and developing new and rarely seen works."
+                new DisplayInfo
+                {
+                    Title = "History",
+                    TextContent = "In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  " +
+                    "Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, " +
+                    "The Electric Company, Theater!Theatre!, and their current home, The Shoebox Theater." +
+                    "From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration " +
+                    "with The Anonymous Theatre Company. Other past collaborations include defunkt theatre, " +
+                    "Stark Raving Theater, and Tears of Joy Theatre." +
+                    "<br />" +
+                    "<br />" +
+                    "Theatre Vertigo has worked on world premieres including <i>Faust</i>. <i>Us</i> by Joseph Fisher, " +
+                    "<i>99 Ways to Fuck a Swan</i> by Kim Rosenstock, and <i>The End of Sex</i> by Craig Jessen." +
+                    "In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright, <i>I Want " +
+                    "To Destroy You</i>, by Rob Handel."
+                },
+
+                new DisplayInfo
+                {
+                    Title = "Mission",
+                    TextContent = "Theatre Vertigo’s mission is to engage audiences through compelling, " +
+                    "ensemble - driven theatre with a focus on producing and developing new and rarely seen works."
+                }
+            };
+            info.ForEach(infos => context.DisplayInfo.AddOrUpdate(x => new { x.Title, x.TextContent }, infos));
+            context.SaveChanges();
         }
-    };
-    info.ForEach(infos => context.DisplayInfo.AddOrUpdate(x => new { x.Title, x.TextContent }, infos));
-    context.SaveChanges();
-}
+    }
 ```
 
-Added a ViewBag for the seeded History and Mission details 
+I then used ViewData to display the information on the page.
 
 
 ```
@@ -183,8 +207,8 @@ public ActionResult About()
     var newInfo = from l in db.DisplayInfo
     select l;
     var info = newInfo.ToList();
-    ViewBag.History = (info.Where(x => x.Title.Contains("History")));
-    ViewBag.Mission = (info.Where(x => x.Title.Contains("Mission")));
+    ViewData["History"] = (info.Where(x => x.Title.Contains("History")).FirstOrDefault().TextContent);
+    ViewData["Mission"] = (info.Where(x => x.Title.Contains("Mission")).FirstOrDefault().TextContent);
    
     return View();
 }
