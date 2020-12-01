@@ -8,7 +8,9 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 
 ### Front-End Stories
-I spent a majority of my spring working on a particular front-end story where I had to customize the Award Details page to match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded.
+I spent a majority of my sprint working on a story customizing the Award Details page.
+
+The first part of the two-part story required that I match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded. [Here](#Finished-Product-Part-1) is the finished product.
 
 ```
 .award-details-container-main {
@@ -133,6 +135,8 @@ I used this Javascript code for the onclick function:
 
 I then created CSS for each animation, using Webkit-Transform to slide each container in and out in a smooth manner. This was a very challenging part of my sprint, but I was able to review existing Bootstrap classes and how they conflict with CSS customizations.
 
+##### Finished Product Part 1
+![Award Details](/AwardDetailsPage3.png)
 
 ### Back-End Stories
 I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I cleaned the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
