@@ -1,13 +1,13 @@
 # Live Project
 
-<h3>Introduction</h3>
+### Introduction
 
 During my time at the Tech Academy, I had the opportunity to work on a live project which not only alowed me to utilize the technical skills I had learned, but also allowed me to work in an Agile/Scrum environment.
 
-The live project was built using ASP .Net MVC and Entity Framework. It was built for local theater company in Portland, Oregon as a content management service (CMS) so that those from the company would be able to easily manage their website without needing to manage the code directly. During the two week sprint, I was able to work both <a href id="#front-end>front end</a> and back end stories. While I dedicated much of my time perfecting front end stories, I also improved pages on back end stories to incorporate dynamic syntax using the conveniences C# has to offer with Razor pages. Working full-stack provided me with experience identifying bugs on a large scale and understanding a larger overview of how apps are created on both client and server side. 
+The live project was built using ASP .Net MVC and Entity Framework. It was built for local theater company in Portland, Oregon as a content management service (CMS) so that those from the company would be able to easily manage their website without needing to manage the code directly. During the two week sprint, I was able to work both [front end](#Front-End-Stories) and [back end](#Back-End-Stories) stories. While I dedicated much of my time perfecting front end stories, I also improved pages on back end stories to incorporate dynamic syntax using the conveniences C# has to offer with Razor pages. Working full-stack provided me with experience identifying bugs on a large scale and understanding a larger overview of how apps are created on both client and server side. 
 
 
-<h3 id="#front-end">Front-End Stories</h3>
+### Front-End Stories
 I spent a majority of my spring working on a particular front-end story where I had to customize the Award Details page to match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded.
 
 ```
@@ -134,7 +134,7 @@ I used this Javascript code for the onclick function:
 I then created CSS for each animation, using Webkit-Transform to slide each container in and out in a smooth manner. This was a very challenging part of my sprint, but I was able to review existing Bootstrap classes and how they conflict with CSS customizations.
 
 
-<h3 id=#back-end">Back-End Stories</h3>
+### Back-End Stories
 I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I cleaned the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
                  
                  
