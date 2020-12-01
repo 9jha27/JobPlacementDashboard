@@ -9,7 +9,10 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 ### Front-End Stories
 I spent a majority of my sprint working on a story customizing the Award Details page.
+*[Part 1](#Award-Details-Part-1)
+*[Part 2](#Award-Details-Part-2)
 
+#### Award Details Part 1
 The first part of the two-part story required that I match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded. [Here](#Finished-Product-Part-1) is the finished product.
 
 ```
@@ -107,9 +110,11 @@ CSS code for the Award Details Container
 ```
 I initially had created two columns and listed everything inside those two columns, but the Title and Content columns were not as close as the client desired. So I created a row for each Title and Content pair and created two columns within the row, which allowed more much easier customization. 
 
+#### Award Details Part 2
+
 After completeing the first part of this story, I continued to work on the second story pertaining to the Award Details. It also dealt with customizing the layout but required me to write an onclick function in Javasript so that when the info icon was clicked, the Award Details container slid to the left and the Cast Member Details appeared next to it in a smooth transition. It also asked for a media query so that when the screen size was smaller, the Cast Member Details would appear underneath the Award Details container so as not to require users to scroll left and right. 
 
-I used this Javascript code for the onclick function: 
+I used this Javascript code: 
 
 ```
 @******************JS OnClick Function***************@
@@ -133,11 +138,134 @@ I used this Javascript code for the onclick function:
 </script>
 ```
 
-I then created CSS for each animation, using Webkit-Transform to slide each container in and out in a smooth manner. This was a very challenging part of my sprint, but I was able to review existing Bootstrap classes and how they conflict with CSS customizations.
+I then styled in CSS, using Webkit-Transform to slide each container in and out in a smooth manner. 
+[This](#Finished-Product-Part-2) is the finished and enhanced Award Details page. 
+
+```
+#awardDetails.slideLeftAward {
+    -webkit-animation: slide-left 1s both;
+    animation: slide-left 1s both;
+}
+
+@-webkit-keyframes slide-left {
+    0% {
+        -webkit-transform: translateX(0) translateY(0);
+        transform: translateX(0) translate(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(-300px);
+        transform: translateX(-300px);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(-300px);
+        transform: translateX(-300px);
+    }
+}
+
+#awardDetails.slideRightAward {
+    
+    -webkit-animation: slide-right 1s both;
+    animation: slide-right 1s both;
+}
+
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-300px);
+        transform: translateX(-300px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(-300px);
+        transform: translateX(-300px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+#castDetails {
+    display: block;
+    visibility: hidden;
+    margin-top: 2em;
+    margin-left: 0;
+    margin-right: 2em;
+    max-height: 80vh;
+    max-width: 20%;
+    background-color: var(--main-secondary-color);
+    position: relative; 
+}
+
+#castDetails.slideLeftCast {
+    display: block;
+    visibility: visible;
+    flex-direction: row;
+    -webkit-animation: slideLeftCast 1s both;
+    animation: slideLeftCast 1s both;
+}
+
+
+@keyframes slideLeftCast {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(-28vw);
+        transform: translateX(-28vw);
+    }
+}
+
+
+#castDetails.slideRightCast {
+    visibility: hidden; /*not sure how to make it fade out to display: none*/
+   
+    -webkit-animation: slide-right-cast 1s both;
+    animation: slide-right-cast 1s both;
+}
+
+@keyframes slide-right-cast {
+    0% {
+        -webkit-transform: translateX(-28vw);
+        transform: translateX(-28vw);
+        opacity: inherit;
+    }
+   /* not sure how to do this without the box still having a pointer if you hover over it*/
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 0;
+        display: none;
+    }
+}
+```
+
+
+
 
 ##### Finished Product Part 1
 ![Award Details](/AwardDetailsPage3.png)
 
+##### Finished Produce Part 2
+![Award Details Complete]
 ### Back-End Stories
 I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I cleaned the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
                  
