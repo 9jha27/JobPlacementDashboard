@@ -285,25 +285,6 @@ protected void SeedDisplayInfo()
 
                 new DisplayInfo
                 {
-                    Title = "Archive Page-content",
-                    TextContent = "In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  " +
-                    "Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, " +
-                    "The Electric Company, Theater!Theatre!, and their current home, The Shoebox Theater." +
-                    "From 2003 to 2014, Theatre Vertigo produced Anonymous Theatre as a summer fundraiser in collaboration " +
-                    "with The Anonymous Theatre Company. Other past collaborations include defunkt theatre, " +
-                    "Stark Raving Theater, and Tears of Joy Theatre." +
-                    "<br />" +
-                    "<br />" +
-                    "Theatre Vertigo has worked on world premieres including <i>Faust</i>. <i>Us</i> by Joseph Fisher, " +
-                    "<i>99 Ways to Fuck a Swan</i> by Kim Rosenstock, and <i>The End of Sex</i> by Craig Jessen." +
-                    "In 2016, Theatre Vertigo produced its first officially commissioned work from a playwright, <i>I Want " +
-                    "To Destroy You</i>, by Rob Handel." 
-                    //For the Archive content page - same as the content in "History" DisplayInfo, but decided to leave it in case
-                    //the theater wants to change this content on the archive page.
-                },
-
-                new DisplayInfo
-                {
                     Title = "History",
                     TextContent = "In 1997, Theatre Vertigo was founded by Paul Floding, Nanette Pettit and Jeff Meyers.  " +
                     "Since then, Theatre Vertigo has performed in numerous spaces including The Russell Street Theater, " +
