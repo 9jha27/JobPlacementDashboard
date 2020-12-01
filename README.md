@@ -9,8 +9,8 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 ### Front-End Stories
 I spent a majority of my sprint working on a story customizing the Award Details page.
-*[Part 1](#Award-Details-Part-1)
-*[Part 2](#Award-Details-Part-2)
+* [Part 1](#Award-Details-Part-1)
+* [Part 2](#Award-Details-Part-2)
 
 #### Award Details Part 1
 The first part of the two-part story required that I match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded. [Here](#Finished-Product-Part-1) is the finished product.
@@ -261,11 +261,13 @@ I then styled in CSS, using Webkit-Transform to slide each container in and out 
 
 
 
-##### Finished Product Part 1
+#### Finished Product Part 1
 ![Award Details](/AwardDetailsPage3.png)
 
-##### Finished Produce Part 2
-![Award Details Complete]
+#### Finished Product Part 2
+![Award Details Complete Photo](/Images/AwardDetailsPt2LargeScreenPhoto.gif)
+![Award Details Small Photo](/Images/AwardDetailsPt2Photo.gif)
+
 ### Back-End Stories
 I was able to work on several smaller back-end stories. The one I am most proud of is refactoring a previously written seed method so that it was more useful when adding future content from the webpage. It was not originally written as a list, so I cleaned the code so that a future developer might be able to simply add new DisplayInfo objects to the list. For this story, I also seeded the company history and mission statements and created a ViewBag to display these contents dynamically from the database if they are ever updated.
                  
