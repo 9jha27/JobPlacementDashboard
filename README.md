@@ -9,11 +9,11 @@ The live project was built using ASP .Net MVC and Entity Framework. It was built
 
 ### Front-End Stories
 I spent a majority of my sprint working on a story customizing the Award Details page.
-* [Part 1](#Award-Details-Part-1)
-* [Part 2](#Award-Details-Part-2)
+* [Part 1](#Award-Details-Part-1) // [Finished Product](#Finished-Product-Part-1)
+* [Part 2](#Award-Details-Part-2) // [Finished Product](#Finished-Product-Part-2)
 
 #### Award Details Part 1
-The first part of the two-part story required that I match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded. [Here](#Finished-Product-Part-1) is the finished product.
+The first part of the two-part story required that I match the color-scheme for the theater while creating a container that allowed it to show at the center when the page loaded. 
 
 ```
 .award-details-container-main {
@@ -262,7 +262,7 @@ I then styled in CSS, using Webkit-Transform to slide each container in and out 
 
 
 #### Finished Product Part 1
-![Award Details](/AwardDetailsPage3.png)
+![Award Details](/Images/AwardDetailsPage3.png)
 
 #### Finished Product Part 2
 ![Award Details Complete Photo](/Images/AwardDetailsPt2LargeScreenPhoto.gif)
