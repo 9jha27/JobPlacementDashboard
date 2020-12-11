@@ -8,7 +8,7 @@ The project was built for a local theater company in Portland, Oregon using ASP 
 
 
 ### Front-End Stories
-I spent a majority of my sprint working on a story customizing the Award Details page.
+I spent a majority of my sprint working on a story customizing the Award Details page. I used HTML, CSS, and JavaScript. I explored with the jQuery library but ended up sticking to webkit animations for this specific project rather than using jQuery's `.slideToggle()`, `.slideUp()`, or `.animate()` methods. 
 * [Part 1](#Award-Details-Part-1) // [Finished Product](#Finished-Product-Part-1)
 * [Part 2](#Award-Details-Part-2) // [Finished Product](#Finished-Product-Part-2)
 
