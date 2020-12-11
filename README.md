@@ -137,8 +137,9 @@ I used this Javascript code:
     }
 </script>
 ```
+I initially used jQuery methods .slideToggle() to experiment with toggling the container left and right, but personally, it made more sense to use webkit animations to translate the container to specific spots. Not to mention, it helped me to have these animations all in the CSS section of the project. 
 
-I then styled in CSS, using Webkit-Transform to slide each container in and out in a smooth manner. 
+So... I styled in CSS, using Webkit-Transform to slide each container in and out in a smooth manner. <p> 
 [This](#Finished-Product-Part-2) is the finished and enhanced Award Details page. 
 
 ```
